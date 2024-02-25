@@ -2,12 +2,14 @@ import torchvision
 from torchvision.models.detection.ssd import SSDClassificationHead
 from torchvision.models.detection import _utils
 from torchvision.models.detection import SSD300_VGG16_Weights
+from torchvision.models.detection import SSDLite320_MobileNet_V3_Large_Weights
+
 
 
 def create_model(num_classes=91, size=300):
     # Load the Torchvision pretrained model.
     model = torchvision.models.detection.ssd300_vgg16(
-        weights=SSD300_VGG16_Weights.COCO_V1
+        weights=SSDLite320_MobileNet_V3_Large_Weights.COCO_V1
     )
     # Retrieve the list of input channels.
     in_channels = _utils.retrieve_out_channels(model.backbone, (size, size))
