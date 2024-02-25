@@ -1,0 +1,26 @@
+<annotation>
+    <folder>Desktop</folder>
+    <filename>IMG1529.jpg</filename>
+    <path>/Users/melo/Desktop/IMG1529.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>3024</width>
+        <height>4032</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>haferflocken_ja</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>466</xmin>
+            <ymin>1294</ymin>
+            <xmax>1792</xmax>
+            <ymax>2811</ymax>
+        </bndbox>
+    </object>
+</annotation>
