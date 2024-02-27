@@ -8,7 +8,7 @@ from torchvision.models.detection import SSDLite320_MobileNet_V3_Large_Weights
 
 def create_model(num_classes=91, size=300):
     # Load the Torchvision pretrained model.
-    model = torchvision.models.detection.ssd300_vgg16(
+    model = torchvision.models.detection.ssdlite320_mobilenet_v3_large(
         weights=SSDLite320_MobileNet_V3_Large_Weights.COCO_V1
     )
     # Retrieve the list of input channels.
