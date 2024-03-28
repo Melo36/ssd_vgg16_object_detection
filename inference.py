@@ -36,11 +36,11 @@ args = vars(parser.parse_args())
 
 os.makedirs('inference_outputs/images', exist_ok=True)
 
-COLORS = [[0, 0, 0], [255, 0, 0]]
+COLORS = [[0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [255, 0, 255], [0, 0, 255]]
 
 # Load the best model and trained weights.
 model = create_model(num_classes=NUM_CLASSES, size=640)
-checkpoint = torch.load('outputs/best_model.pth', map_location=DEVICE)
+checkpoint = torch.load('/Users/melo/Desktop/ssd_100/best_model.pth', map_location=DEVICE)
 model.load_state_dict(checkpoint['model_state_dict'])
 model.to(DEVICE).eval()
 
@@ -67,7 +67,7 @@ for i in range(len(test_images)):
     # Bring color channels to front (H, W, C) => (C, H, W).
     image_input = np.transpose(image, (2, 0, 1)).astype(np.float32)
     # Convert to tensor.
-    image_input = torch.tensor(image_input, dtype=torch.float).cuda()
+    image_input = torch.tensor(image_input, dtype=torch.float).cpu()
     # Add batch dimension.
     image_input = torch.unsqueeze(image_input, 0)
     start_time = time.time()
@@ -76,6 +76,7 @@ for i in range(len(test_images)):
         outputs = model(image_input.to(DEVICE))
     end_time = time.time()
 
+    print(f'Inference time {(end_time - start_time) * 1000.0} ms')
     # Get the current fps.
     fps = 1 / (end_time - start_time)
     # Total FPS till current frame.

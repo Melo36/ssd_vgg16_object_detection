@@ -11,7 +11,7 @@ TRAIN_DIR = 'data/train'
 VALID_DIR = 'data/valid'
 # Classes: 0 index is reserved for background.
 CLASSES = [
-    '__background__', 'haferflocken_ja'
+    '__background__', 'ferrero_klassik', 'leibniz_butter', 'leibniz_kakao', 'lindt_lindor', 'milka_vollmilch',
 ]
 NUM_CLASSES = len(CLASSES)
 # Whether to visualize images after crearing the data loaders.
